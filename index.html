@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peachtree Dental | Kennesaw GA</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#060d14;--bg-light:#0c1820;--bg-mid:#132530;
+  --white:#f8fafb;--cream:#e0eaf0;--gray:#6a8899;--gray-light:#9ab5c5;
+  --accent:#3db8a0;--accent-hover:#4dd4b8;--accent-glow:rgba(61,184,160,.12);
+  --accent-deep:#2a8070;
+  --font-display:'Anton',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --max:1200px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--cream);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.liquid-glass{background:rgba(255,255,255,.02);background-blend-mode:luminosity;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:none;box-shadow:inset 0 1px 1px rgba(255,255,255,.08);position:relative;overflow:hidden}
+.liquid-glass::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1.2px;background:linear-gradient(180deg,rgba(255,255,255,.35) 0%,rgba(255,255,255,.1) 20%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 60%,rgba(255,255,255,.1) 80%,rgba(255,255,255,.35) 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.grain{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.35}
+.grain svg{width:100%;height:100%;opacity:.1}
+.reveal{opacity:0;transform:translateY(50px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-scale{opacity:0;transform:scale(.9);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
+.reveal-scale.visible{opacity:1;transform:scale(1)}
+.s1{transition-delay:.1s}.s2{transition-delay:.2s}.s3{transition-delay:.25s}
+.s4{transition-delay:.35s}.s5{transition-delay:.45s}.s6{transition-delay:.55s}
+nav{position:fixed;top:0;width:100%;z-index:100;padding:20px 0;transition:all .4s}
+nav.scrolled .nav-pill{background:rgba(6,13,20,.92);box-shadow:0 8px 32px rgba(0,0,0,.3)}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.nav-pill{display:flex;align-items:center;gap:32px;padding:14px 32px;border-radius:50px;transition:all .4s}
+.nav-logo{font-family:var(--font-display);font-size:18px;color:var(--white);text-transform:uppercase;letter-spacing:.02em}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--gray-light);text-decoration:none;font-size:13px;font-weight:500;transition:color .3s;text-transform:uppercase;letter-spacing:.05em}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{background:var(--accent);color:var(--white);padding:10px 24px;border-radius:50px;font-weight:700;font-size:13px;text-decoration:none;transition:all .3s;text-transform:uppercase;letter-spacing:.03em}
+.nav-cta:hover{background:var(--accent-hover);transform:translateY(-1px);box-shadow:0 6px 24px rgba(61,184,160,.3)}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:120px 24px 80px}
+.hero-orb{position:absolute;border-radius:50%;pointer-events:none}
+.hero-orb-1{top:-20%;right:-10%;width:1000px;height:1000px;background:radial-gradient(circle,rgba(61,184,160,.1),transparent 55%);animation:drift 12s ease-in-out infinite}
+.hero-orb-2{bottom:-30%;left:-15%;width:800px;height:800px;background:radial-gradient(circle,rgba(61,184,160,.05),transparent 55%);animation:drift 16s ease-in-out infinite reverse}
+.hero-orb-3{top:30%;left:50%;width:600px;height:600px;background:radial-gradient(circle,rgba(100,180,220,.04),transparent 55%);animation:drift 14s ease-in-out infinite 2s}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-30px) scale(1.05)}66%{transform:translate(-20px,40px) scale(.97)}}
+.hero-content{position:relative;z-index:3;max-width:900px}
+.hero-label{font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:32px;opacity:.9}
+.hero h1{font-family:var(--font-display);font-size:clamp(48px,10vw,120px);color:var(--white);line-height:.95;text-transform:uppercase;letter-spacing:-.02em;margin-bottom:32px}
+.hero h1 span{color:var(--accent)}
+.hero-sub{font-size:clamp(15px,2vw,19px);color:var(--gray-light);max-width:520px;margin:0 auto 48px;line-height:1.7;font-weight:400}
+.hero-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{padding:18px 40px;border-radius:50px;font-weight:600;font-size:15px;text-decoration:none;transition:all .3s;display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:none}
+.btn-fill{background:var(--accent);color:var(--white)}.btn-fill:hover{background:var(--accent-hover);transform:translateY(-3px);box-shadow:0 12px 40px rgba(61,184,160,.3)}
+.btn-glass{color:var(--white)}.btn-glass:hover{background:rgba(255,255,255,.08)}
+.hero-rating{margin-top:40px;display:flex;align-items:center;justify-content:center;gap:12px}
+.hero-stars{color:var(--accent);font-size:16px;letter-spacing:3px}
+.hero-rating-text{font-size:13px;color:var(--gray-light);font-weight:500}
+.trust{padding:0 24px 120px;position:relative;z-index:2}
+.trust-grid{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.trust-card{border-radius:20px;padding:32px 24px;text-align:center;transition:all .4s}
+.trust-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.2)}
+.trust-num{font-family:var(--font-display);font-size:42px;color:var(--white);text-transform:uppercase;letter-spacing:-.01em}
+.trust-label{font-size:11px;font-weight:600;color:var(--gray);margin-top:8px;text-transform:uppercase;letter-spacing:.15em}
+.section{min-height:100vh;display:flex;align-items:center;padding:120px 24px;position:relative}
+.section-inner{max-width:var(--max);margin:0 auto;width:100%}
+.section-label{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+.section-title{font-family:var(--font-display);font-size:clamp(32px,6vw,72px);color:var(--white);text-transform:uppercase;letter-spacing:-.02em;line-height:.95;margin-bottom:24px}
+.section-desc{font-size:16px;color:var(--gray-light);max-width:480px;line-height:1.8;margin-bottom:56px}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.svc{border-radius:20px;padding:40px 32px;transition:all .4s;position:relative;overflow:hidden}
+.svc::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent-deep));transform:scaleX(0);transform-origin:left;transition:transform .5s}
+.svc:hover{transform:translateY(-6px);box-shadow:0 24px 64px rgba(0,0,0,.15)}.svc:hover::after{transform:scaleX(1)}
+.svc h3{font-family:var(--font-display);font-size:20px;color:var(--white);text-transform:uppercase;letter-spacing:.01em;margin-bottom:12px}
+.svc p{font-size:14px;color:var(--gray);line-height:1.7}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:48px}
+.stat{border-radius:16px;padding:28px;transition:all .3s}
+.stat:hover{background:rgba(255,255,255,.04)}
+.stat-num{font-family:var(--font-display);font-size:40px;color:var(--accent);text-transform:uppercase}
+.stat-label{font-size:12px;color:var(--gray);margin-top:4px;text-transform:uppercase;letter-spacing:.1em}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.test{border-radius:20px;padding:40px 32px;transition:all .4s}
+.test:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.15)}
+.test .stars{color:var(--accent);font-size:16px;letter-spacing:4px;margin-bottom:16px}
+.test p{font-size:15px;color:var(--cream);line-height:1.8;margin-bottom:24px;font-style:italic;opacity:.9}
+.t-footer{display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid rgba(255,255,255,.06)}
+.t-av{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--white);flex-shrink:0}
+.t-name{font-weight:700;font-size:14px;color:var(--white)}
+.t-src{font-size:12px;color:var(--gray)}
+.pill{display:inline-flex;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+.pill-google{background:rgba(100,160,255,.12);color:#7ab4ff}
+.pill-yelp{background:rgba(211,60,60,.12);color:#e06060}
+.pill-healthgrades{background:rgba(61,184,160,.12);color:#4dd4b8}
+.cta-section{min-height:60vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 24px;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(61,184,160,.08),transparent 65%);pointer-events:none}
+footer{padding:48px 24px;border-top:1px solid rgba(255,255,255,.04)}
+.footer-inner{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+.footer-brand{font-family:var(--font-display);font-size:16px;color:var(--white);text-transform:uppercase}
+.footer-links{display:flex;gap:24px}
+.footer-links a{color:var(--gray);text-decoration:none;font-size:13px;transition:color .2s}
+.footer-links a:hover{color:var(--accent)}
+.footer-copy{color:var(--gray);font-size:12px;width:100%;text-align:center;margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,.04)}
+.badges-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+.bdg{border-radius:16px;padding:18px 28px;text-align:center;min-width:140px;transition:all .3s}
+.bdg:hover{transform:translateY(-2px)}
+.bdg strong{display:block;font-size:14px;font-weight:800;color:var(--white)}
+.bdg span{display:block;font-size:10px;font-weight:700;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-top:6px}
+.license{font-size:13px;color:var(--gray);text-align:center;margin-top:16px}
+.area-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:800px}
+.area-pin{padding:14px 18px;border-radius:12px;font-weight:600;font-size:14px;color:var(--cream);transition:all .3s;display:flex;align-items:center;gap:8px}
+.area-pin:hover{transform:translateX(4px);background:rgba(255,255,255,.04)}
+.area-pin::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0}
+@media(max-width:1024px){.services-grid,.test-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){
+  .hero h1{font-size:clamp(40px,12vw,72px)}
+  .about-grid{grid-template-columns:1fr}
+  .services-grid,.test-grid{grid-template-columns:1fr}
+  .trust-grid{grid-template-columns:1fr 1fr}
+  .area-grid{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+  .section{min-height:auto;padding:80px 24px}
+}
+@media(max-width:480px){.trust-grid{grid-template-columns:1fr}.hero-buttons{flex-direction:column;align-items:center}.btn{width:100%;justify-content:center}}
+</style>
+</head>
+<body>
+<div class="grain"><svg xmlns="http://www.w3.org/2000/svg"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg></div>
+
+<nav id="navbar">
+<div class="nav-inner">
+  <div class="nav-pill liquid-glass">
+    <div class="nav-logo">Peachtree Dental</div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact" class="nav-cta">Book Now</a>
+    </div>
+  </div>
+</div>
+</nav>
+
+<section class="hero">
+  <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.15;filter:brightness(.8)"><source src="hero-video.mp4" type="video/mp4"></video>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="hero-content">
+    <div class="hero-label reveal">Accepting New Patients &middot; Kennesaw, GA</div>
+    <h1 class="reveal s1">Hate The<br>Dentist?<br><span>You Haven't<br>Met Us.</span></h1>
+    <p class="hero-sub reveal s2">Gentle, judgment-free dentistry for the whole family. Sedation options for anxious patients. Most insurance accepted. Same-day emergencies welcome.</p>
+    <div class="hero-buttons reveal s3">
+      <a href="tel:(770)555-0142" class="btn btn-fill">Call (770) 555-0142</a>
+      <a href="#services" class="btn btn-glass liquid-glass">Our Services</a>
+    </div>
+    <div class="hero-rating reveal s4">
+      <div class="hero-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="hero-rating-text">4.9 on Google &middot; 380+ Reviews</div>
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="trust-grid">
+    <div class="trust-card liquid-glass reveal s1"><div class="trust-num">18+</div><div class="trust-label">Years Local</div></div>
+    <div class="trust-card liquid-glass reveal s2"><div class="trust-num">4.9&#9733;</div><div class="trust-label">Google</div></div>
+    <div class="trust-card liquid-glass reveal s3"><div class="trust-num">380+</div><div class="trust-label">Reviews</div></div>
+    <div class="trust-card liquid-glass reveal s4"><div class="trust-num">Same Day</div><div class="trust-label">Emergency</div></div>
+  </div>
+</section>
+
+<section class="section" id="services">
+<div class="section-inner">
+  <div class="section-label reveal">What We Do</div>
+  <div class="section-title reveal s1">Dentistry<br>Without<br>The Dread</div>
+  <div class="section-desc reveal s2">Comprehensive care from routine cleanings to full-mouth reconstruction. Sedation available for every procedure.</div>
+  <div class="services-grid">
+    <div class="svc liquid-glass reveal s1"><h3>General Dentistry</h3><p>Cleanings, exams, fillings, and preventive care. Digital X-rays with 80% less radiation.</p></div>
+    <div class="svc liquid-glass reveal s2"><h3>Cosmetic</h3><p>Veneers, whitening, bonding, and smile makeovers. See your results before we start with digital preview.</p></div>
+    <div class="svc liquid-glass reveal s3"><h3>Implants</h3><p>Single tooth to full-arch replacement. In-house CT scanning and surgical placement — no referrals needed.</p></div>
+    <div class="svc liquid-glass reveal s4"><h3>Invisalign</h3><p>Clear aligners for teens and adults. Diamond-tier provider with 500+ cases completed.</p></div>
+    <div class="svc liquid-glass reveal s5"><h3>Sedation</h3><p>Nitrous oxide, oral sedation, and IV sedation. Fall asleep anxious, wake up done. Zero judgment.</p></div>
+    <div class="svc liquid-glass reveal s6"><h3>Emergency</h3><p>Same-day appointments for broken teeth, severe pain, and infections. Call us — we'll fit you in.</p></div>
+  </div>
+</div>
+</section>
+
+<section class="section" id="about" style="background:var(--bg-light)">
+<div class="section-inner">
+<div class="about-grid">
+  <div>
+    <div class="section-label reveal">About</div>
+    <div class="section-title reveal s1">Your Smile.<br>Our Mission.</div>
+    <p style="color:var(--gray-light);font-size:16px;line-height:1.8;margin-bottom:12px" class="reveal s2">Peachtree Dental has served Kennesaw and Cobb County families for over 18 years. Dr. Sarah Chen, DDS, leads a team of 12 dedicated to making every visit comfortable — especially for patients who've had bad experiences elsewhere.</p>
+    <p style="color:var(--gray);font-size:15px;line-height:1.8" class="reveal s3">We invested in the latest technology — digital impressions, same-day crowns, 3D imaging — so you spend less time in the chair and more time smiling.</p>
+    <div class="about-stats">
+      <div class="stat liquid-glass reveal s2"><div class="stat-num">18+</div><div class="stat-label">Years Kennesaw</div></div>
+      <div class="stat liquid-glass reveal s3"><div class="stat-num">4.9&#9733;</div><div class="stat-label">380+ Reviews</div></div>
+      <div class="stat liquid-glass reveal s4"><div class="stat-num">500+</div><div class="stat-label">Invisalign Cases</div></div>
+      <div class="stat liquid-glass reveal s5"><div class="stat-num">12</div><div class="stat-label">Team Members</div></div>
+    </div>
+  </div>
+  <div class="reveal-scale" style="border-radius:24px;overflow:hidden;background:linear-gradient(135deg,rgba(61,184,160,.08),rgba(6,13,20,.9));display:flex;align-items:center;justify-content:center;min-height:400px;border:1px solid rgba(61,184,160,.1)">
+    <div style="text-align:center;padding:48px">
+      <div style="font-family:var(--font-display);font-size:clamp(80px,15vw,160px);color:var(--accent);opacity:.15;line-height:.85;text-transform:uppercase">18+<br>Years</div>
+      <div style="font-size:13px;color:var(--gray);text-transform:uppercase;letter-spacing:.2em;margin-top:16px">Kennesaw, Georgia</div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="section" id="reviews">
+<div class="section-inner">
+  <div class="section-label reveal">Reviews</div>
+  <div class="section-title reveal s1">What Our<br>Patients Say</div>
+  <div class="section-desc reveal s2">Real reviews. Real patients. No edits.</div>
+  <div class="test-grid">
+    <div class="test liquid-glass reveal s1">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>"I haven't been to a dentist in 8 years because of anxiety. Dr. Chen and her team made me feel completely safe. No judgment, just kindness. I actually look forward to going back."</p>
+      <div class="t-footer">
+        <div class="t-av" style="background:linear-gradient(135deg,#4a80d4,#2a5db5)">MR</div>
+        <div><div class="t-name">Michelle R.</div><div class="t-src"><span class="pill pill-google">Google</span></div></div>
+      </div>
+    </div>
+    <div class="test liquid-glass reveal s2">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>"Broke a tooth on Saturday morning. Called Peachtree and they got me in within an hour. Crown done the same day. I couldn't believe it. These people are miracle workers."</p>
+      <div class="t-footer">
+        <div class="t-av" style="background:linear-gradient(135deg,var(--accent),var(--accent-deep))">JT</div>
+        <div><div class="t-name">James T.</div><div class="t-src"><span class="pill pill-google">Google</span></div></div>
+      </div>
+    </div>
+    <div class="test liquid-glass reveal s3">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>"My kids actually ask to go to the dentist now. The team is incredible with children — patient, fun, and thorough. Best pediatric dental experience we've had in 3 states."</p>
+      <div class="t-footer">
+        <div class="t-av" style="background:linear-gradient(135deg,#d45a5a,#a53030)">AW</div>
+        <div><div class="t-name">Amanda W.</div><div class="t-src"><span class="pill pill-yelp">Yelp</span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="section" style="min-height:auto;padding:80px 24px">
+<div class="section-inner" style="text-align:center">
+  <div class="section-label reveal">Credentials</div>
+  <div class="badges-row">
+    <div class="bdg liquid-glass reveal s1"><strong>DDS</strong><span>Emory '08</span></div>
+    <div class="bdg liquid-glass reveal s2"><strong>ADA Member</strong><span>Since 2008</span></div>
+    <div class="bdg liquid-glass reveal s3"><strong>Invisalign</strong><span>Diamond Tier</span></div>
+    <div class="bdg liquid-glass reveal s4"><strong>Google</strong><span>4.9 &#9733; 380+</span></div>
+    <div class="bdg liquid-glass reveal s5"><strong>Sedation</strong><span>IV Certified</span></div>
+  </div>
+  <div class="license reveal">GA Dental License #DN012847 &middot; DEA Registration &middot; IV Sedation Certified &middot; HIPAA Compliant</div>
+</div>
+</section>
+
+<section class="section" style="min-height:auto;padding:80px 24px">
+<div class="section-inner">
+  <div class="section-label reveal">Service Area</div>
+  <div class="section-title reveal s1" style="margin-bottom:40px">Cobb County<br>&amp; Beyond</div>
+  <div class="area-grid">
+    <div class="area-pin reveal s1">Kennesaw</div>
+    <div class="area-pin reveal s2">Acworth</div>
+    <div class="area-pin reveal s3">Marietta</div>
+    <div class="area-pin reveal s4">Woodstock</div>
+    <div class="area-pin reveal s5">Smyrna</div>
+    <div class="area-pin reveal s6">Roswell</div>
+    <div class="area-pin reveal s1">Canton</div>
+    <div class="area-pin reveal s2">Powder Springs</div>
+  </div>
+</div>
+</section>
+
+<section class="cta-section" id="contact">
+  <div class="hero-orb" style="top:-30%;right:-20%;width:800px;height:800px;background:radial-gradient(circle,rgba(61,184,160,.1),transparent 55%);animation:drift 10s ease-in-out infinite"></div>
+  <div style="position:relative;z-index:2" class="reveal-scale">
+    <div class="section-label">Ready?</div>
+    <div class="section-title" style="margin-bottom:24px">Your Best<br>Smile Starts<br>With A Call.</div>
+    <p style="font-size:17px;color:var(--gray-light);margin-bottom:40px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.7">New patients welcome. Most insurance accepted. Financing available. No judgment, ever.</p>
+    <a href="tel:(770)555-0142" class="btn btn-fill" style="font-size:18px;padding:22px 48px">Call (770) 555-0142</a>
+    <p style="margin-top:24px;font-size:13px;color:var(--gray)">2840 George Busbee Pkwy, Kennesaw, GA 30144</p>
+  </div>
+</section>
+
+<footer>
+<div class="footer-inner">
+  <div class="footer-brand">Peachtree Dental</div>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#reviews">Reviews</a>
+    <a href="tel:(770)555-0142">Call</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 Peachtree Dental &middot; GA License #DN012847 &middot; Kennesaw, GA</div>
+</div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('visible');obs.unobserve(el.target)}})},{threshold:.12,rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.reveal,.reveal-scale').forEach(el=>obs.observe(el));
+window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>80)});
+</script>
+</body>
+</html>
