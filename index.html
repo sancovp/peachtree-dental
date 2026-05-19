@@ -158,7 +158,6 @@ footer{padding:48px 24px;border-top:1px solid rgba(255,255,255,.04);max-width:12
 </section>
 
 <section class="capabilities" id="services">
-  <video id="capVideo" autoplay muted playsinline preload="auto" style="opacity:0"><source src="hero-video.mp4" type="video/mp4"></video>
   <div class="cap-content">
     <div class="cap-kicker fade-in">// Services</div>
     <div class="cap-title fade-in">Dentistry<br>without<br>the dread</div>
@@ -288,7 +287,6 @@ function setupVideo(video) {
   });
 }
 setupVideo(document.getElementById('heroVideo'));
-setupVideo(document.getElementById('capVideo'));
 
 // Scroll reveal
 const obs = new IntersectionObserver(entries => {
